@@ -10,7 +10,7 @@
 - Execute your statement with Statement member functions executeQuery() or executeUpdate()
 
 ### 2) Methods, examples
-####executeQuery
+#### executeQuery
 This will execute a query which does not change the database (SELECT statement for example)
 
 #### executeUpdate
