@@ -22,18 +22,18 @@ Member function of ResultSet.  Moves the ResultSet's cursor down one row (pointi
 
 Example code for executeQuery():
 
-		String selectQuery;
-		Connection con = DBConnection.getDBInstance();
-		DBUtility.useDB(con, "employee_servlet");
-		
-		ResultSet rs;
-		
-		response.setContentType("text/html");
-		
-		selectQuery = "SELECT * FROM employee;";
-		rs = DBUtility.executeQuery(con, selectQuery);
-		response.getWriter().append("<p class=\"data\">" + DBUtility.printEntireRS(rs) + "</p>");
-
+	public static ResultSet executeQuery(Connection con, String query) {
+		ResultSet rs = null;
+		try {
+			Statement statement = con.createStatement();
+			rs = statement.executeQuery(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 Example code for executeUpdate:
 
     Statement statement;
