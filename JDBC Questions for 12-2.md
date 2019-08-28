@@ -36,12 +36,20 @@ Example code for executeQuery():
 	}
 Example code for executeUpdate:
 
-    Statement statement;
+	public static boolean executeUpdate(Connection con, String query) {
+		Statement statement;
 		try {
 			statement = con.createStatement();
 			System.out.println(statement.executeUpdate(query) + " Rows affected.");
 			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
+	}
 
 Example code for next():
 
